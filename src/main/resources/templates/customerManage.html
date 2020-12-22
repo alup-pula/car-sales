@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>客户信息管理</title>
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/vendors/easypiechart/jquery.easy-pie-chart.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/assets/styles.css}" rel="stylesheet" media="screen">
+</head>
+<body>
+<div th:replace="~{layout::top}"></div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div th:replace="~{layout::left}"></div>
+        <div class="span9" id="content">
+            <div class="row-fluid">
+                <div class="block">
+                    <div class="navbar navbar-inner block-header">
+                        <div class="muted pull-left">客户信息管理</div>
+                    </div>
+                    <div class="block-content collapse in">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>客户编号</th>
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>年龄</th>
+                                <th>联系地址</th>
+                                <th>联系电话</th>
+                                <th>身份证</th>
+                                <th>电子邮箱</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="customer:${customers}">
+                                <td th:text="${customer.getId()}"></td>
+                                <td th:text="${customer.getName()}"></td>
+                                <td th:text="${customer.getSex()}"></td>
+                                <td th:text="${customer.getAge()}"></td>
+                                <td th:text="${customer.getAddress()}"></td>
+                                <td th:text="${customer.getTel()}"></td>
+                                <td th:text="${customer.getIdentityNumber()}"></td>
+                                <td th:text="${customer.getEmail()}"></td>
+                                <td><a th:href="@{'/toEditCustomer/'+${customer.getId()}}">修改</a>
+                                    |
+                                    <a th:href="@{'/delCustomer/'+${customer.getId()}}"
+                                       onclick="return confirm('确认删除?');">删除</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

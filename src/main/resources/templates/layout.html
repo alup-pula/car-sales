@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="navbar navbar-fixed-top" th:fragment="top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span
+                    class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" th:href="@{/index}">轿车销售管理系统</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav pull-right">
+                    <li>
+                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i
+                                class="icon-user"></i> [[${session.name}]]
+
+                        </a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" th:href="@{'/toEditMyInfo/'+${session.uid}}">修改我的信息</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" th:href="@{/logout}">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3" id="sidebar" th:fragment="left">
+            <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                <li th:if="${session.uid==1}">
+                    <a th:href="@{/userList}">系统用户管理</a>
+                </li>
+                <li>
+                    <a th:href="@{/toAddCarBrand}">新增汽车品牌</a>
+                </li>
+                <li>
+                    <a th:href="@{/toCarBrandManage}">汽车品牌管理</a>
+                </li>
+                <li>
+                    <a th:href="@{/toAddCustomer}">添加客户信息</a>
+                </li>
+                <li>
+                    <a th:href="@{/toCustomerManage}">客户信息管理</a>
+                </li>
+                <li>
+                    <a th:href="@{/toAddCar}">新增汽车信息</a>
+                </li>
+                <li>
+                    <a th:href="@{/toCarManage}">汽车基本信息管理</a>
+                </li>
+                <li>
+                    <a th:href="@{/toAddWarehouse}">汽车入库</a>
+                </li>
+                <li>
+                    <a th:href="@{/toAddCarSell}">汽车销售管理</a>
+                </li>
+                <li>
+                    <a th:href="@{/toCarSellStatistics}">汽车销售统计</a>
+                </li>
+                <li>
+                    <a th:href="@{/inventoryManage}">汽车库存管理</a>
+                </li>
+                <li>
+                    <a th:href="@{/toWarehouseStatistics}">汽车入库统计</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

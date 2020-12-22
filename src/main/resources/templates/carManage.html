@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>汽车基本信息管理</title>
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/vendors/easypiechart/jquery.easy-pie-chart.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/assets/styles.css}" rel="stylesheet" media="screen">
+</head>
+<body>
+<div th:replace="~{layout::top}"></div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div th:replace="~{layout::left}"></div>
+        <div class="span9" id="content">
+            <div class="row-fluid">
+                <div class="block">
+                    <div class="navbar navbar-inner block-header">
+                        <div class="muted pull-left">汽车基本信息管理</div>
+                    </div>
+                    <div class="block-content collapse in">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>品牌</th>
+                                <th>名称</th>
+                                <th>汽车排量</th>
+                                <th>变速箱</th>
+                                <th>尺寸(mm)</th>
+                                <th>重量</th>
+                                <th>备注</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="car:${cars}">
+                                <td th:text="${car.getCarBrand()}"></td>
+                                <td th:text="${car.getName()}"></td>
+                                <td th:text="${car.getDisplacement()}"></td>
+                                <td th:text="${car.getGearbox()}"></td>
+                                <td th:text="${car.getDimension()}"></td>
+                                <td th:text="${car.getWeight()}"></td>
+                                <td th:text="${car.getRemark()}"></td>
+                                <td><a th:href="@{'/toEditCar/'+${car.getId()}}">修改</a>
+                                    |
+                                    <a th:href="@{'/delCar/'+${car.getId()}}"
+                                       onclick="return confirm('确认删除?');">删除</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

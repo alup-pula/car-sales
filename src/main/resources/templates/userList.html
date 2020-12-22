@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>系统用户管理</title>
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/vendors/easypiechart/jquery.easy-pie-chart.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/assets/styles.css}" rel="stylesheet" media="screen">
+</head>
+<body>
+<div th:replace="~{layout::top}"></div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div th:replace="~{layout::left}"></div>
+        <div class="span9" id="content">
+            <div class="row-fluid">
+                <div class="block">
+                    <div class="navbar navbar-inner block-header">
+                        <div class="muted pull-left">系统用户管理</div>
+                        <div class="muted pull-right"><a th:href="@{toAddUser}" class="btn btn-primary">新增系统用户</a></div>
+                    </div>
+                    <div class="block-content collapse in">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>用户名</th>
+                                <th>名称</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user:${users}">
+                                <td th:text="${user.getUsername()}"></td>
+                                <td th:text="${user.getName()}"></td>
+                                <td><a th:href="@{'/toEditUser/'+${user.getId()}}">修改</a>
+                                    |
+                                    <a th:href="@{'/delUser/'+${user.getId()}}"
+                                       onclick="return confirm('确认删除?');">删除</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

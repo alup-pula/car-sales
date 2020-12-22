@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>新增系统用户</title>
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/vendors/easypiechart/jquery.easy-pie-chart.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/assets/styles.css}" rel="stylesheet" media="screen">
+</head>
+<body>
+<div th:replace="~{layout::top}"></div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div th:replace="~{layout::left}"></div>
+        <div class="span9" id="content">
+            <div class="row-fluid">
+                <div class="block">
+                    <div class="navbar navbar-inner block-header">
+                        <div class="muted pull-left">新增系统用户</div>
+                    </div>
+                    <div class="block-content collapse in">
+                        <div class="control-group">
+                            <form th:action="@{/addUser}" method="post">
+                                <div class="control-group">
+                                    <label class="control-label">用户名：<span class="required">*</span>
+                                        <input name="username" required type="text" class="span3 m-wrap"/>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">密码：<span class="required">*</span>
+                                        <input name="password" required type="text" class="span3 m-wrap"/>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">名称：<span class="required">*</span>
+                                        <input name="name" required type="text" class="span3 m-wrap"/>
+                                    </label>
+                                </div>
+                                <div th:if="${msg!=null}" th:text="${msg}" class="alert alert-info" role="alert"></div>
+
+                                <div>
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

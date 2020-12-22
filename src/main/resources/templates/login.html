@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/vendors/easypiechart/jquery.easy-pie-chart.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/assets/styles.css}" rel="stylesheet" media="screen">
+</head>
+<body id="login">
+<div class="container">
+
+    <form th:action="@{/login}" method="post" class="form-signin">
+        <h2 class="form-signin-heading text-center">登录轿车销售管理系统</h2>
+        <label>
+            用户名:<input name="username" type="text" required class="input-block-level">
+        </label>
+        <label>
+            密码:<input name="password" type="password" required class="input-block-level">
+        </label>
+        <div th:if="${msg!=null}" th:text="${msg}" class="alert alert-danger" role="alert"></div>
+        <button class="btn btn-large btn-primary" type="submit">登录</button>
+    </form>
+</div>
+</body>
+</html>

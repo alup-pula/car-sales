@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改汽车基本信息</title>
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/vendors/easypiechart/jquery.easy-pie-chart.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/assets/styles.css}" rel="stylesheet" media="screen">
+</head>
+<body>
+<div th:replace="~{layout::top}"></div>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div th:replace="~{layout::left}"></div>
+        <div class="span9" id="content">
+            <div class="row-fluid">
+                <div class="block">
+                    <div class="navbar navbar-inner block-header">
+                        <div class="muted pull-left">修改汽车基本信息</div>
+                    </div>
+                    <div class="block-content collapse in">
+                        <div class="control-group">
+                            <form th:action="@{/editCar}" method="post">
+                                <input type="hidden" name="id" th:value="${car.getId()}">
+                                <div class="control-group">
+                                    <label class="control-label">品牌：<span class="required">*</span>
+                                        <select class="span3 m-wrap" name="carBrand" th:value="${car.getCarBrand()}">
+                                            <option th:each="cb:${carBrands}" th:value="${cb.getName()}"
+                                                    th:selected="${cb.getName()==car.getCarBrand()}"
+                                                    th:text="${cb.getName()}"></option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">名称：<span class="required">*</span>
+                                        <input name="name" th:value="${car.getName()}" required type="text"
+                                               class="span3 m-wrap"/>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">排量：<span class="required">*</span>
+                                        <input name="displacement" th:value="${car.getDisplacement()}" required
+                                               type="text"
+                                               class="span3 m-wrap"/>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">变速箱：<span class="required">*</span>
+                                        <input name="gearbox" th:value="${car.getGearbox()}" required type="text"
+                                               class="span3 m-wrap"/>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">汽车尺寸：<span class="required">*</span>
+                                        <input name="dimension" th:value="${car.getDimension()}" required type="text"
+                                               class="span3 m-wrap"/>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">重量：<span class="required">*</span>
+                                        <input name="weight" th:value="${car.getWeight()}" required type="text"
+                                               class="span3 m-wrap"/>
+                                    </label>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">备注：
+                                        <input name="remark" th:value="${car.getRemark()}" type="text"
+                                               class="span3 m-wrap"/>
+                                    </label>
+                                </div>
+                                <div class="control-group" hidden>
+                                    <label class="control-label">库存：<span class="required">*</span>
+                                        <input name="inventory" th:value="${car.getInventory()}" required type="text"
+                                               class="span3 m-wrap"/>
+                                    </label>
+                                </div>
+                                <div th:if="${msg!=null}" th:text="${msg}" class="alert alert-info" role="alert"></div>
+                                <div>
+                                    <button type="submit" class="btn btn-primary">保存</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
