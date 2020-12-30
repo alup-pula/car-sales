@@ -19,13 +19,13 @@ public class WarehouseController {
     @GetMapping("/toWarehouseStatistics")
     public String toWarehouseStatistics(Model model) {
         model.addAttribute("warehouseVos", warehouseService.getWarehouseVoList());
-        return "/warehouseStatistics";
+        return "warehouseStatistics";
     }
 
     @GetMapping("toAddWarehouse")
     public String toAddWarehouse(Model model) {
         model.addAttribute("cars", carService.getCarList());
-        return "/addWarehouse";
+        return "addWarehouse";
     }
 
     @PostMapping("/addWarehouse")
@@ -33,6 +33,6 @@ public class WarehouseController {
         String msg = warehouseService.addWarehouse(warehouse);
         model.addAttribute("cars", carService.getCarList());
         model.addAttribute("msg", msg);
-        return "/addWarehouse";
+        return "addWarehouse";
     }
 }

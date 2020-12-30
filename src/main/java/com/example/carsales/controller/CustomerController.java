@@ -17,15 +17,15 @@ public class CustomerController {
     @GetMapping("/toCustomerManage")
     public String toCustomerManage(Model model) {
         model.addAttribute("customers", customerService.getCustomerList());
-        return "/customerManage";
+        return "customerManage";
     }
 
     @GetMapping("/toAddCustomer")
     public String toAddCustomer() {
-        return "/addCustomer";
+        return "addCustomer";
     }
 
-    @PostMapping("/addCustomer")
+    @PostMapping("addCustomer")
     public String addCustomer(Customer customer, Model model) {
         Customer cdb = customerService.addCustomer(customer);
         if (cdb != null) {
@@ -33,7 +33,7 @@ public class CustomerController {
         } else {
             model.addAttribute("msg", "保存失败");
         }
-        return "/addCustomer";
+        return "addCustomer";
     }
 
     @GetMapping("/delCustomer/{id}")
@@ -45,7 +45,7 @@ public class CustomerController {
     @GetMapping("/toEditCustomer/{id}")
     public String toEditCustomer(@PathVariable("id") Long id, Model model) {
         model.addAttribute("customer", customerService.getCustomerById(id));
-        return "/editCustomer";
+        return "editCustomer";
     }
 
     @PostMapping("/editCustomer")
@@ -54,10 +54,10 @@ public class CustomerController {
         if (null == customerDb) {
             model.addAttribute("msg", "修改失败，请重试");
             model.addAttribute("customer", customer);
-            return "/editCustomer";
+            return "editCustomer";
         }
         model.addAttribute("msg", "修改成功");
         model.addAttribute("customer", customerDb);
-        return "/editCustomer";
+        return "editCustomer";
     }
 }

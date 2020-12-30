@@ -23,7 +23,7 @@ public class CarSellController {
     public String addCarSell(Model model) {
         model.addAttribute("customers", customerService.getCustomerList());
         model.addAttribute("cars", carService.getCarList());
-        return "/addCarSell";
+        return "addCarSell";
     }
 
     @PostMapping("/addCarSell")
@@ -32,12 +32,12 @@ public class CarSellController {
         model.addAttribute("customers", customerService.getCustomerList());
         model.addAttribute("cars", carService.getCarList());
         model.addAttribute("msg", msg);
-        return "/addCarSell";
+        return "addCarSell";
     }
 
     @GetMapping("/toCarSellStatistics")
     public String toCarSellStatistics(Model model) {
         model.addAttribute("carSells", carSellService.getCarSellList());
-        return "/carSellStatistics";
+        return "carSellStatistics";
     }
 }

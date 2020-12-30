@@ -21,13 +21,13 @@ public class LoginAndLogoutController {
 
     @GetMapping({"/", "/index"})
     public String toIndex() {
-        return "/index";
+        return "index";
     }
 
     @GetMapping("/toLogin")
     public String toLogin() {
         //跳转到登录页面
-        return "/login";
+        return "login";
     }
 
     /**
@@ -43,7 +43,7 @@ public class LoginAndLogoutController {
             return "redirect:/index";
         } else {
             model.addAttribute("msg", "用户名或密码错误");
-            return "/login";
+            return "login";
         }
     }
 

@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class MySpringMVCConfig implements WebMvcConfigurer {
+public class SpringMvcConfig implements WebMvcConfigurer {
     @Bean
     public SessionInterceptor sessionInterceptor() {
         return new SessionInterceptor();

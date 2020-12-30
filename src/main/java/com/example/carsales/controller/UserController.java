@@ -23,7 +23,7 @@ public class UserController {
      */
     @GetMapping("/toAddUser")
     public String toAddUser() {
-        return "/addUser";
+        return "addUser";
     }
 
     /**
@@ -33,7 +33,7 @@ public class UserController {
     public String addUser(User user, Model model) {
         String msg = userService.addUser(user);
         model.addAttribute("msg", msg);
-        return "/addUser";
+        return "addUser";
     }
 
     /**
@@ -43,7 +43,7 @@ public class UserController {
     public String userList(Model model) {
         List<User> users = userService.getUserList();
         model.addAttribute("users", users);
-        return "/userList";
+        return "userList";
     }
 
     /**
@@ -61,7 +61,7 @@ public class UserController {
     @GetMapping("/toEditUser/{id}")
     public String toEditUser(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
-        return "/editUser";
+        return "editUser";
     }
 
     /**
@@ -77,7 +77,7 @@ public class UserController {
             model.addAttribute("user", user);
             model.addAttribute("msg", "失败");
         }
-        return "/editUser";
+        return "editUser";
     }
 
     /**
@@ -87,7 +87,7 @@ public class UserController {
     public String toEditInfo(@PathVariable("id") Long id, Model model) {
         User userDb = userService.getUserById(id);
         model.addAttribute("user", userDb);
-        return "/editMyInfo";
+        return "editMyInfo";
     }
 
     /**
@@ -103,6 +103,6 @@ public class UserController {
             model.addAttribute("msg", "保存失败");
             model.addAttribute("user", user);
         }
-        return "/editMyInfo";
+        return "editMyInfo";
     }
 }

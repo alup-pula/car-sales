@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-
+/**
+ * 项目启动完成后执行
+ */
 @Component
 public class CarSalesStart implements ApplicationListener<ContextRefreshedEvent> {
     @Autowired

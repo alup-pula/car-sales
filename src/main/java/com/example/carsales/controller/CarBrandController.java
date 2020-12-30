@@ -20,19 +20,19 @@ public class CarBrandController {
     public String toCarBrandManager(Model model) {
         List<CarBrand> carBrands = carBrandDao.findAll();
         model.addAttribute("carBrands", carBrands);
-        return "/carBrandManage";
+        return "carBrandManage";
     }
 
     @GetMapping("/toAddCarBrand")
     public String toAddCarBrand() {
-        return "/addCarBrand";
+        return "addCarBrand";
     }
 
     @PostMapping("/addCarBrand")
     public String addCarBrand(CarBrand carBrand, Model model) {
         carBrandDao.save(carBrand);
         model.addAttribute("msg", "保存成功");
-        return "/addCarBrand";
+        return "addCarBrand";
     }
 
     @GetMapping("/delCarBrand/{id}")

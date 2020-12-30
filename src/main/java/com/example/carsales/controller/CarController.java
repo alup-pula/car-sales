@@ -24,7 +24,7 @@ public class CarController {
     @GetMapping("/toAddCar")
     public String toAddCar(Model model) {
         model.addAttribute("carBrands", carBrandService.getCarBrandList());
-        return "/addCar";
+        return "addCar";
     }
 
     @PostMapping("/addCar")
@@ -36,13 +36,13 @@ public class CarController {
             model.addAttribute("msg", "保存成功");
         }
         model.addAttribute("carBrands", carBrandService.getCarBrandList());
-        return "/addCar";
+        return "addCar";
     }
 
     @GetMapping("/toCarManage")
     public String toCarManage(Model model) {
         model.addAttribute("cars", carService.getCarList());
-        return "/carManage";
+        return "carManage";
     }
 
     @GetMapping("/delCar/{id}")
@@ -55,7 +55,7 @@ public class CarController {
     public String toEditCar(@PathVariable("id") Long id, Model model) {
         model.addAttribute("car", carService.getCarById(id));
         model.addAttribute("carBrands", carBrandService.getCarBrandList());
-        return "/editCar";
+        return "editCar";
     }
 
     @PostMapping("/editCar")
@@ -65,16 +65,16 @@ public class CarController {
             model.addAttribute("msg", "修改失败，请重试");
             model.addAttribute("car", car);
             model.addAttribute("carBrands", carBrandService.getCarBrandList());
-            return "/editCar";
+            return "editCar";
         }
         model.addAttribute("msg", "修改成功");
         model.addAttribute("car", carDb);
-        return "/editCar";
+        return "editCar";
     }
 
     @GetMapping("/inventoryManage")
     public String inventoryManage(Model model) {
         model.addAttribute("cars", carService.getCarList());
-        return "/inventoryManage";
+        return "inventoryManage";
     }
 }
