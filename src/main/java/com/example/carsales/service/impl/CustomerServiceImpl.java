@@ -3,7 +3,6 @@ package com.example.carsales.service.impl;
 import com.example.carsales.dao.CustomerDao;
 import com.example.carsales.entity.Customer;
 import com.example.carsales.service.CustomerService;
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

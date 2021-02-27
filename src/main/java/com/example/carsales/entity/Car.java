@@ -1,6 +1,7 @@
 package com.example.carsales.entity;
 
 import javax.persistence.*;
+
 /**
  * 汽车表
  */

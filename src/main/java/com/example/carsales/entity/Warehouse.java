@@ -1,7 +1,6 @@
 package com.example.carsales.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * 库存表

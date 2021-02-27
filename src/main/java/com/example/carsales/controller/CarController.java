@@ -1,7 +1,6 @@
 package com.example.carsales.controller;
 
 import com.example.carsales.entity.Car;
-import com.example.carsales.entity.CarBrand;
 import com.example.carsales.service.CarBrandService;
 import com.example.carsales.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.List;
 
 @Controller
 public class CarController {
